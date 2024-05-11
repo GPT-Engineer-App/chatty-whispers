@@ -1,19 +1,30 @@
-// Update this page (the content is just a fallback if you fail and example)
-// Use chakra-ui
-import { Container, Text, VStack } from "@chakra-ui/react";
-
-// Example of using react-icons
-// import { FaRocket } from "react-icons/fa";
-// <IconButton aria-label="Add" icon={<FaRocket />} size="lg" />; // IconButton would also have to be imported from chakra
+import { Box, Flex, Input, Button, VStack, Text, useBreakpointValue } from "@chakra-ui/react";
 
 const Index = () => {
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      <VStack spacing={4}>
-        <Text fontSize="2xl">Your Blank Canvas</Text>
-        <Text>Chat with the agent to start making edits.</Text>
-      </VStack>
-    </Container>
+    <Flex height="100vh" overflow="hidden">
+      <Box width={isMobile ? "100%" : "30%"} bg="blue.50" p={4}>
+        <VStack spacing={4} align="stretch">
+          <Text fontSize="xl" fontWeight="bold">Contacts</Text>
+          <Button variant="ghost">Alice</Button>
+          <Button variant="ghost">Bob</Button>
+          <Button variant="ghost">Charlie</Button>
+        </VStack>
+      </Box>
+      <Flex direction="column" flex="1" p={4} bg="gray.50">
+        <VStack spacing={4} flex="1" overflowY="auto">
+          <Text fontSize="md" alignSelf="flex-start">Alice:</Text>
+          <Text fontSize="md" alignSelf="flex-end" bg="blue.100" p={2} borderRadius="lg">Hi there!</Text>
+          <Text fontSize="md" alignSelf="flex-start" bg="green.100" p={2} borderRadius="lg">Hello!</Text>
+        </VStack>
+        <Flex mt="auto" pt={2}>
+          <Input placeholder="Type a message" />
+          <Button ml={2}>Send</Button>
+        </Flex>
+      </Flex>
+    </Flex>
   );
 };
 
