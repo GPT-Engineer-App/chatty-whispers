@@ -11,6 +11,7 @@ const Index = () => {
           <Button variant="ghost">Alice</Button>
           <Button variant="ghost">Bob</Button>
           <Button variant="ghost">Charlie</Button>
+          <Button variant="ghost">Wade</Button>
         </VStack>
       </Box>
       <Flex direction="column" flex="1" p={4} bg="gray.50">
